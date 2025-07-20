@@ -1,20 +1,25 @@
 import React, { use, useEffect,useState } from 'react'
+import { useLoaderData } from 'react-router-dom'
 
 function Github() {
-    const [data, setData] = useState(0);
-    useEffect(()=>{
+    const data = useLoaderData();
+
+    // const [data, setData] = useState(0);
+    // useEffect(()=>{
         
-        fetch('https://api.github.com/users/hiteshchoudhary')
-        .then((response) => response.json())
-        .then((data) => {
-             console.log(data.followers)
-            // document.querySelector('span').innerText = ` ${data.followers}`;
-            setData(data);
-        })
-        .catch((error) => {
-            console.error('Error fetching data:', error);
-        })
-    },[])
+    //     fetch('https://api.github.com/users/hiteshchoudhary')
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //          console.log(data.followers)
+    //         // document.querySelector('span').innerText = ` ${data.followers}`;
+    //         setData(data);
+    //     })
+    //     .catch((error) => {
+    //         console.error('Error fetching data:', error);
+    //     })
+    // },[])
+
+
   return (
     //<div className='text-center m-4 bg-amber-400 text-2xl'>Github Followers:<span></span></div>
     <div className='text-center m-4 bg-amber-400 text-4xl justify-center items-center flex gap-5 flex-row'>
@@ -26,3 +31,8 @@ function Github() {
 }
 
 export default Github
+
+export const githubLoader = async () => {
+  const response = await fetch('https://api.github.com/users/hiteshchoudhary')
+  return response.json();
+}

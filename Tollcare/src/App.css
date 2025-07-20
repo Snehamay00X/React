@@ -1,0 +1,65 @@
+@import "tailwindcss";
+[data-aos="roll-unfold"] {
+  transform: rotateY(-90deg) scaleY(0);
+  opacity: 0;
+  transform-origin: left center;
+  transition-property: transform, opacity;
+  transition-duration: 1s;
+}
+
+[data-aos="roll-unfold"].aos-animate {
+  transform: rotateY(0deg) scaleY(1);
+  opacity: 1;
+}
+@keyframes smoothRollUnfold {
+  0% {
+    transform: scaleY(0) rotateX(-30deg) translateX(-100px);
+    opacity: 0;
+    transform-origin: left top;
+  }
+  60% {
+    transform: scaleY(1.05) rotateX(5deg) translateX(10px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scaleY(1) rotateX(0deg) translateX(0);
+    opacity: 1;
+  }
+}
+
+[data-aos="smooth-roll-unfold"] {
+  opacity: 0;
+  transform: scaleY(0) rotateX(-30deg) translateX(-100px);
+  transform-origin: left top;
+  transition-property: transform, opacity;
+}
+
+[data-aos="smooth-roll-unfold"].aos-animate {
+  animation: smoothRollUnfold 1.2s ease-out forwards;
+}
+@keyframes horizontalUnroll {
+  0% {
+    transform: scaleX(0) skewX(15deg);
+    opacity: 0;
+    transform-origin: left center;
+  }
+  60% {
+    transform: scaleX(1.05) skewX(-5deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scaleX(1) skewX(0deg);
+    opacity: 1;
+  }
+}
+
+[data-aos="horizontal-unroll"] {
+  opacity: 0;
+  transform: scaleX(0) skewX(15deg);
+  transform-origin: left center;
+  transition-property: transform, opacity;
+}
+
+[data-aos="horizontal-unroll"].aos-animate {
+  animation: horizontalUnroll 1.2s ease-out forwards;
+}
