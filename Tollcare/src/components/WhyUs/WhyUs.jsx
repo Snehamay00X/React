@@ -1,29 +1,43 @@
 import React from 'react';
+import {
+  BanknotesIcon,
+  ArrowsRightLeftIcon,
+  LifebuoyIcon,
+  DevicePhoneMobileIcon,
+  ChartBarSquareIcon,
+  BoltIcon,
+} from '@heroicons/react/24/solid'; // <- using solid icons
 
 const features = [
   {
     title: "Seamless toll payment experience",
     desc: "Enjoy a smooth and hassle-free toll payment process with automatic deductions via FASTag. Skip the long queues and save time, ensuring a quicker, more efficient journey for your clients every time.",
+    icon: BanknotesIcon,
   },
   {
     title: "Realtime Transaction Updates",
     desc: "Get instant updates on transactions, tag status, and recharges. Stay on top of your client’s account activity without delays.",
+    icon: ArrowsRightLeftIcon,
   },
   {
     title: "24/7 Customer Support",
     desc: "Access 24/7 customer support for any questions or issues. We’re here to help you make your FASTag services smooth and hassle-free.",
+    icon: LifebuoyIcon,
   },
   {
     title: "User-Friendly Interface",
     desc: "With a clean, intuitive design, our app is easy to navigate. Even first-time users can manage FASTags effortlessly.",
+    icon: DevicePhoneMobileIcon,
   },
   {
     title: "Track Commission Earnings",
     desc: "Easily monitor your real-time commissions with transparent reports and detailed breakdowns. Stay on top of payouts and performance, ensuring smooth, error-free earnings management.",
+    icon: ChartBarSquareIcon,
   },
   {
     title: "Quick Registration and Activation",
     desc: "FASTags are activated within minutes, ensuring your clients are ready to use them right away. No lengthy delays!",
+    icon: BoltIcon,
   },
 ];
 
@@ -40,13 +54,16 @@ const WhyChooseUs = () => {
         </p>
 
         <div className="grid md:grid-cols-3 gap-10">
-          {features.map((feature, idx) => (
-            <div key={idx} className="text-left" data-aos="fade-up" data-aos-delay={idx * 100}>
-              <div className="text-3xl mb-4">🧊</div> {/* Replace with icon if needed */}
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-              <p className="text-gray-600">{feature.desc}</p>
-            </div>
-          ))}
+          {features.map((feature, idx) => {
+            const Icon = feature.icon;
+            return (
+              <div key={idx} className="text-left" data-aos="fade-up" data-aos-delay={idx * 100}>
+                <Icon className="h-10 w-10 text-black mb-4" /> {/* Black icon */}
+                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                <p className="text-gray-600">{feature.desc}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

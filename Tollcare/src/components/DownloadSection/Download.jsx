@@ -1,86 +1,70 @@
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
-import phoneImage from '../../assets/phone.jpg';  // Replace with your asset path
-import logo from '../../assets/logo.png';        // Toll Care logo
-import qrCode from '../../assets/QR.png';    // QR code
+import React from 'react';
+import phoneImage from '../../assets/phone.jpg';
+import qrCode from '../../assets/QR.png';
+import GooglePlayButton from './GooglePlayButton.jsx'; // Adjust path if needed
 
 const DownloadSection = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
-  }, []);
-
   return (
-    <section className="w-full bg-gradient-to-r from-indigo-900 to-purple-500 py-12 px-4">
-      <div
-        className="relative max-w-7xl mx-auto bg-gray-100 rounded-3xl shadow-lg px-6 py-10 md:flex items-center justify-between gap-10 overflow-hidden"
-        data-aos="fade-up"
-      >
+    <div className="w-full bg-gradient-to-r from-[#582D91] to-[#B654A5] py-12 px-4">
+      <div className="max-w-7xl mx-auto bg-[#f3f3f3] rounded-[50px] px-6 md:px-12 py-10 md:py-16 flex flex-col md:flex-row items-center md:items-start md:gap-x-12 relative">
+        
         {/* Left: Phone Image */}
-        <div className="flex justify-center md:w-1/2 mb-6 md:mb-0">
+        <div className="w-full md:w-[45%] flex justify-center mb-10 md:mb-0">
           <img
             src={phoneImage}
             alt="Phone"
-            className="w-[250px] md:w-[280px] lg:w-[300px] object-contain"
+            className="max-w-[300px] md:max-w-[340px]"
           />
         </div>
+        
+        {/* Right: Text Block */}
+        <div className="w-full md:w-[55%] ml-auto flex flex-col gap-6 pl-10 pr-2 text-left">
+          <h1 className="text-5xl md:text-6xl font-extrabold">DOWNLOAD</h1>
 
-        {/* Right: Content */}
-        <div className="text-center md:text-left md:w-1/2 space-y-4">
-          <h2 className="text-4xl font-extrabold text-gray-900">DOWNLOAD</h2>
-
-          <div className="flex items-center justify-center md:justify-start gap-2">
-            <img src={logo} alt="Toll Care Logo" className="h-6" />
-            <span className="text-xl font-semibold text-gray-800"></span>
+          <div className="flex items-center justify-start gap-2 text-[#131947]">
+            <span className="bg-[#131947] text-white px-3 py-1 rounded-md font-bold text-lg md:text-xl">TC</span>
+            <span className="text-xl md:text-2xl font-semibold">Toll Care</span>
           </div>
 
-          <p className="text-gray-700 text-sm">
-            “Where convenience meets efficiency at fingertips. TollCare is crafted
-            to deliver a smooth, effective and intuitive solution to India's toll
-            payment needs.”
+          <p className="text-gray-700 text-base md:text-lg leading-relaxed md:max-w-lg">
+            “Where convenience meets efficiency at fingertips. TollCare is crafted to deliver a smooth, effective and intuitive solution to India’s toll payment needs.”
           </p>
 
-          <a
-            href="#"
-            className="inline-block mt-2 bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition"
-          >
-            <i className="fab fa-google-play mr-2"></i> Get it on Google Play
-          </a>
-
-          {/* Rating */}
-          <div className="flex justify-center md:justify-start items-center gap-2 pt-3">
-            <div className="flex text-yellow-400 text-xl">★ ★ ★ ★ ☆</div>
-            <span className="text-gray-600 text-sm">4.5</span>
+          {/* ✅ Google Play Button Component */}
+          <div className="mt-2">
+            <GooglePlayButton />
           </div>
 
-          {/* Stats */}
-          <div className="flex justify-center md:justify-start gap-6 pt-3 text-sm text-gray-700">
-            <div>
+          <div className="flex items-center justify-start text-yellow-400 text-2xl md:text-3xl">
+            ★ ★ ★ ★ ★ <span className="text-gray-400 ml-1 text-lg">½</span>
+          </div>
+
+          <div className="flex justify-start gap-8 text-sm md:text-base text-gray-600">
+            <div className="text-left">
               <div className="font-bold">100+</div>
               <div>Users</div>
             </div>
-            <div>
+            <div className="text-left">
               <div className="font-bold">1000+</div>
               <div>Downloads</div>
             </div>
-            <div>
+            <div className="text-left">
               <div className="font-bold">300+</div>
               <div>Verified Users</div>
             </div>
           </div>
-        </div>
 
-        {/* QR Code at bottom right */}
-        <div className="absolute bottom-6 right-6">
-          <img
-            src={qrCode}
-            alt="QR Code"
-            className="w-28 h-28 md:w-32 md:h-32 rounded-xl shadow-md"
-          />
+          {/* QR Code */}
+          <div className="absolute bottom-6 right-6 hidden md:block">
+            <img
+              src={qrCode}
+              alt="QR Code"
+              className="w-28 h-28 rounded-xl border border-gray-300"
+            />
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

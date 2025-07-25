@@ -10,7 +10,7 @@ function App() {
   return (
     <>
      <Card name="Snehamay" txt="Click Me" />
-     <Card name ="Sayan" txt="Click Me Sayan"/> 
+     <Card name ="Sayan" txt="Click Me Sayan"/>
     </>
   )
 }

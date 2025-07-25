@@ -13,15 +13,19 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white shadow border-b border-gray-200 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center space-x-3">
-          <img src={logo} alt="Toll Care Logo" className="h-10 w-auto object-contain" />
-          <span className="text-xl font-semibold tracking-tight text-gray-800">
-          </span>
+      {/* Remove max-width and reduce padding */}
+      <div className="w-full px-2 md:px-4 py-3 flex items-center justify-between">
+        
+        {/* Left: Logo */}
+        <div className="flex items-center">
+          <img
+            src={logo}
+            alt="Toll Care Logo"
+            className="h-10 w-auto object-contain"
+          />
         </div>
 
-        {/* Right Section: Nav Links + Button */}
+        {/* Right: Nav links and button */}
         <div className="hidden md:flex items-center space-x-6">
           <div className="flex items-center space-x-6 text-sm font-medium text-gray-700">
             {navItems.map((item) => (
@@ -35,12 +39,12 @@ const Navbar = () => {
               </a>
             ))}
           </div>
-          <button className="bg-black cursor-pointer text-white px-5 py-2 rounded-full text-sm font-medium shadow-sm hover:bg-gray-900 transition transform hover:scale-105">
+          <button className="bg-black text-white px-5 py-2 rounded-full text-sm font-medium shadow-sm hover:bg-gray-900 transition transform hover:scale-105">
             JOIN US
           </button>
         </div>
 
-        {/* Hamburger (Mobile) */}
+        {/* Mobile Hamburger */}
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
